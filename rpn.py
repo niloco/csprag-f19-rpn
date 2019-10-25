@@ -7,7 +7,10 @@ def calculate(arg):
         elif token == '-':
             stack.append((stack.pop() - stack.pop()) * - 1) # -1 accounts for order of popping (lifo)
         elif token.isnumeric():
-            stack.append(int(token))
+            if len(stack) > 1:
+                raise TypeError('malformed input')
+            else:
+                stack.append(int(token))
 
     return stack.pop()
 
