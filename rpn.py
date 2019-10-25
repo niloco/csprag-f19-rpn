@@ -1,5 +1,13 @@
 def calculate(arg):
-    pass
+    stack = list()
+
+    for token in arg.split():
+        if token == '+':
+            stack.append(stack.pop() + stack.pop())
+        if token.isnumeric():
+            stack.append(int(token))
+
+    return stack.pop()
 
 def main():
     while True:
