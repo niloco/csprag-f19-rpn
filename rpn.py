@@ -4,7 +4,9 @@ def calculate(arg):
     for token in arg.split():
         if token == '+':
             stack.append(stack.pop() + stack.pop())
-        if token.isnumeric():
+        elif token == '-':
+            stack.append((stack.pop() - stack.pop()) * - 1) # -1 accounts for order of popping (lifo)
+        elif token.isnumeric():
             stack.append(int(token))
 
     return stack.pop()
