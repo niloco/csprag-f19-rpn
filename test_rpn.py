@@ -10,7 +10,7 @@ class TestBasics(unittest.TestCase):
         self.assertEqual(1, rpn.calculate('3 2 -'))
     
     def test_mul(self):
-        self.assertEqual(96, calculat(12 8 *))
+        self.assertEqual(96, rpn.calculate('12 8 *'))
 
     def test_badinput(self):
         with self.assertRaises(TypeError):
