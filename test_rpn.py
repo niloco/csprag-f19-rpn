@@ -8,7 +8,6 @@ class TestBasics(unittest.TestCase):
     
     def test_subtract(self):
         self.assertEqual(1, rpn.calculate('3 2 -'))
-        self.assertEqual(-1, rpn.calculate('2 3 -'))
 
     def test_badinput(self):
         with self.assertRaises(TypeError):
