@@ -8,9 +8,12 @@ class TestBasics(unittest.TestCase):
     
     def test_subtract(self):
         self.assertEqual(1, rpn.calculate('3 2 -'))
+<<<<<<< HEAD
     
     def test_mul(self):
         self.assertEqual(96, calculat(12 8 *))
+=======
+>>>>>>> refactor
 
     def test_badinput(self):
         with self.assertRaises(TypeError):
