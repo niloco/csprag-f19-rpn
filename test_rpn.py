@@ -22,7 +22,7 @@ class TestBasics(unittest.TestCase):
         self.assertEqual(125, rpn.calculate('5 3 **'))
 
     def test_factorial(self):
-        self.assertEqual(0, '0 !')
+        self.assertEqual(1, '0 !')
         self.assertEqual(240, '6 !')
 
     def test_badinput(self):
