@@ -1,9 +1,10 @@
 import operator
 
 operators = {
-    '+': operator.add,
-    '-': operator.sub,
-    '*': operator.mul,
+    '+':    operator.add,
+    '-':    operator.sub,
+    '*':    operator.mul,
+    '/':    operator.floordiv,
 }
 
 def calculate(arg):
