@@ -15,6 +15,9 @@ class TestBasics(unittest.TestCase):
     def test_div(self):
         self.assertEqual(5, rpn.calculate('17 3 /'))
 
+    def test_modulo(self):
+        self.assertEqual(2, rpn.calculate('17 3 %'))
+
     def test_badinput(self):
         with self.assertRaises(TypeError):
             rpn.calculate('1 2 3 +')
