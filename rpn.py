@@ -1,6 +1,17 @@
 import operator
 
-operators = {
+def factorial(n):
+    result = 1
+
+    if n == 0 or n == 1:
+        return result
+    else:
+        for i in range(2, n + 1):
+            result *= i
+
+        return result
+
+double_arg_ops = {
     '+':    operator.add,
     '-':    operator.sub,
     '*':    operator.mul,
@@ -8,6 +19,11 @@ operators = {
     '%':    operator.mod,
     '**':   operator.pow,
 }
+
+single_arg_ops = {
+    '!':    factorial,
+}
+
 
 def calculate(arg):
     stack = list()
@@ -17,12 +33,16 @@ def calculate(arg):
             value = int(token)
             stack.append(value)
         except ValueError:
-            function = operators[token]
-
-            arg2 = stack.pop()
             arg1 = stack.pop()
+            result = 0
 
-            result = function(arg1, arg2)
+            try:
+                function = double_arg_ops[token]
+                arg0 = stack.pop()
+                result = function(arg0, arg1)
+            except KeyError:
+                function = single_arg_ops[token]
+                result = function(arg1)
 
             stack.append(result)
 

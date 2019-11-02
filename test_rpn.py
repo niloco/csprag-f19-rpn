@@ -23,7 +23,7 @@ class TestBasics(unittest.TestCase):
 
     def test_factorial(self):
         self.assertEqual(1, rpn.calculate('0 !'))
-        self.assertEqual(240, rpn.calculate('6 !'))
+        self.assertEqual(720, rpn.calculate('6 !'))
 
     def test_badinput(self):
         with self.assertRaises(TypeError):
