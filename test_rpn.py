@@ -22,8 +22,8 @@ class TestBasics(unittest.TestCase):
         self.assertEqual(125, rpn.calculate('5 3 **'))
 
     def test_factorial(self):
-        self.assertEqual(1, '0 !')
-        self.assertEqual(240, '6 !')
+        self.assertEqual(1, rpn.calculate('0 !'))
+        self.assertEqual(240, rpn.calculate('6 !'))
 
     def test_badinput(self):
         with self.assertRaises(TypeError):
