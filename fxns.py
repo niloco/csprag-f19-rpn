@@ -8,3 +8,13 @@ def factorial(n):
             result *= i
 
     return result
+
+def sum(stack):
+    result = 0
+
+    while len(stack) != 0:
+        result += stack.pop()
+
+    stack.append(result)
+
+    return stack
