@@ -1,29 +1,4 @@
-import operator
-
-def factorial(n):
-    result = 1
-
-    if n == 0 or n == 1:
-        return result
-    else:
-        for i in range(2, n + 1):
-            result *= i
-
-        return result
-
-double_arg_ops = {
-    '+':    operator.add,
-    '-':    operator.sub,
-    '*':    operator.mul,
-    '/':    operator.floordiv,
-    '%':    operator.mod,
-    '**':   operator.pow,
-}
-
-single_arg_ops = {
-    '!':    factorial,
-}
-
+import dicts
 
 def calculate(arg):
     stack = list()
@@ -37,11 +12,11 @@ def calculate(arg):
             result = 0
 
             try:
-                function = double_arg_ops[token]
+                function = dicts.dual_arg_ops[token]
                 arg0 = stack.pop()
                 result = function(arg0, arg1)
             except KeyError:
-                function = single_arg_ops[token]
+                function = dicts.single_arg_ops[token]
                 result = function(arg1)
 
             stack.append(result)
