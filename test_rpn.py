@@ -25,6 +25,9 @@ class TestBasics(unittest.TestCase):
         self.assertEqual(1, rpn.calculate('0 !'))
         self.assertEqual(720, rpn.calculate('6 !'))
 
+    def test_sum(self):
+        self.assertEqual(0, rpn.calculate('1 3 2 -6 S'))
+
     def test_badinput(self):
         with self.assertRaises(TypeError):
             rpn.calculate('1 2 3 +')
