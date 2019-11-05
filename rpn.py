@@ -8,18 +8,20 @@ def calculate(arg):
             value = int(token)
             stack.append(value)
         except ValueError:
-            arg1 = stack.pop()
-            result = 0
-
             try:
-                function = dicts.dual_arg_ops[token]
-                arg0 = stack.pop()
-                result = function(arg0, arg1)
-            except KeyError:
-                function = dicts.single_arg_ops[token]
-                result = function(arg1)
+                op_type, func = dicts.operations[token]
 
-            stack.append(result)
+                if op_type == dicts.fxn_type.stack:
+                    stack = func(stack)
+                elif op_type == dicts.fxn_type.single_arg:
+                    arg = stack.pop()
+                    stack.append(func(arg))
+                else:
+                    arg1 = stack.pop()
+                    arg0 = stack.pop()
+                    stack.append(func(arg0, arg1))
+            except KeyError:
+                raise TypeError('invalid operator')
 
     if len(stack) > 1:
         raise TypeError('malformed input')
