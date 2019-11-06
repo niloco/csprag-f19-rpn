@@ -17,4 +17,4 @@ def sum(stack):
 
     stack.append(result)
 
-    return stack
+    return result
