@@ -28,9 +28,8 @@ class TestBasics(unittest.TestCase):
         self.assertEqual(0, rpn.calculate('1 3 2 -6 S', list()))
 
     def test_bad_input(self):
+        stack = [1, 2, 3, 4]
         self.assertRaises(  TypeError, 
                             rpn.calculate, 
-                            '0 23 k', list())
-
-    def test_dummy(self):
-        self.assertEqual(True, False)
+                            '0 23 k', stack)
+        self.assertEqual([1, 2, 3, 4], stack)
