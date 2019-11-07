@@ -23,7 +23,7 @@ def calculate(input, stack):
 
                 stack.append(result)
             except KeyError:
-                raise TypeError('invalid operator')
+                raise TypeError('invalid operator: ' + token)
 
     return result
 
@@ -40,9 +40,11 @@ def main():
         elif user_input == 'quit':
             return
         else:
-            result = calculate(user_input, stack)
-            print('result: ', result)
-
+            try:
+                result = calculate(user_input, stack)
+                print('result: ', result)
+            except TypeError as e:
+                print(e)
 
 if __name__ == '__main__':
     main()
