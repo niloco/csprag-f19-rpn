@@ -31,3 +31,6 @@ class TestBasics(unittest.TestCase):
         self.assertRaises(  TypeError, 
                             rpn.calculate, 
                             '0 23 k', list())
+
+    def test_dummy(self):
+        self.assertEqual(True, False)
